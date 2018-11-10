@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Proelio
+Comment=Proelio P2P Cryptocurrency
+Comment[fr]=Proelio, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Proelio, eşten eşe kriptografik sanal para birimi
+Exec=proelio-qt %u
+Terminal=false
+Type=Application
+Icon=proelio128
+MimeType=x-scheme-handler/proelio;
+Categories=Office;Finance;

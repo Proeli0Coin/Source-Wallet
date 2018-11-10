@@ -1,0 +1,26 @@
+[Unit]
+Description=Proelio's distributed currency daemon
+After=network.target
+
+[Service]
+User=proelio
+Group=proelio
+
+Type=forking
+PIDFile=/var/lib/proeliod/proeliod.pid
+
+ExecStart=/usr/bin/proeliod -daemon -pid=/var/lib/proeliod/proeliod.pid \
+          -conf=/etc/proelio/proelio.conf -datadir=/var/lib/proeliod
+
+ExecStop=-/usr/bin/proelio-cli -conf=/etc/proelio/proelio.conf \
+         -datadir=/var/lib/proeliod stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
